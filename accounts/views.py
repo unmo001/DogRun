@@ -4,6 +4,7 @@ from django.contrib.auth.views import LoginView as AuthLoginView
 from django.contrib.auth.models import User
 from django.views.generic import CreateView
 from .forms import UserCreateForm
+from Owner.models import Owner
 
 
 # Create your views here.
@@ -15,7 +16,9 @@ login = LoginView.as_view()
 
 
 class CreateAccounts(CreateView):
+
     def post(self, request, *args, **kwargs):
+
         form = UserCreateForm(data=request.POST)
         if form.is_valid():
             form.save()
@@ -23,7 +26,7 @@ class CreateAccounts(CreateView):
             password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=password)
             login(request, user)
-            return redirect('/')
+            return redirect('Owner:HomeView')
         return render(request, 'registration/create.html', {'form': form, })
 
     def get(self, request, *args, **kwargs):

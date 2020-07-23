@@ -1,6 +1,6 @@
 <html lang="ja">
   <body>
-    <form method="POST" action="{% url 'Owner:HomeView' %}">
+    <form method="get" action="{% url 'Owner:HomeView' %}">
       {% csrf_token %}
       <label>ユーザーID</label>
       {{ form.username }}
