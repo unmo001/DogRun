@@ -11,4 +11,4 @@ class UserCreateForm(UserCreationForm):
 
     class Meta:
         model = Owner
-        fields = ('username', 'password1', 'password2',)
+        fields = ('username', 'password1', 'password2')

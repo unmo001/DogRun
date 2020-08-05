@@ -8,7 +8,10 @@ def index(request):
     return render(request, 'registration/index.html')
 
 
-class HomeView(DetailView):
-    template_name = 'home.html'
-    model = Owner
+
+
+
+
+
+
 
